@@ -17,3 +17,19 @@ tjo = _.sortBy(tjo, function(i) {
 
 console.log(frequencies);
 console.log(tjo);
+
+
+var q = _.range(10);
+
+function add(num, queue) {
+    queue.splice(_.sortedIndex(queue, num), 0, num);
+}
+
+function poll(queue) {
+    return queue.splice(0, 1);
+}
+
+console.log(q);
+add(5, q);
+console.log(q);
+console.log(poll(q));
