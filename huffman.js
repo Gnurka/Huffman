@@ -1,5 +1,11 @@
 // Huffman coding with Underscore.js
 
+// TODO: Add unit testing 
+// Add some more logic, like showing entropy, bits per character, compression rate etc... to practice Underscore more.
+// Separate logic and presentation
+// Style with html, css and make a modern presentation
+// Add some animations just for fun! :)
+
 $(document).ready(function() {
 	$("#generate").on("click", function() {
 		console.log("CLICK!");
@@ -8,6 +14,7 @@ $(document).ready(function() {
 		var huffmanTable = huffman(text);
 
 		var table = $("#result");
+		table.show();
 		table.find("tbody").empty();
 		_.each(huffmanTable, function(i) {
 			var row = $(
@@ -18,6 +25,10 @@ $(document).ready(function() {
 					"</tr>");
 			table.append(row);
 		});
+
+		var avgBits = getAvgBitCount(huffmanTable);
+		console.log("Average bits per character: " + avgBits);
+		$("#avgBits").text("Average bits per character: " + avgBits);
 	});
 });
 
@@ -87,4 +98,10 @@ function generateCode(node, code) {
 	}
 
 	return code;
+}
+
+function getAvgBitCount(leafs) {
+	return _.reduce(leafs, function(memo, leaf) {
+		return memo + leaf.code.length / leafs.length;
+	}, 0);
 }

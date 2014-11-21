@@ -3,9 +3,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="underscore.js"></script>
-    <script src="huffman.js"></script>
+    <link href="index.css" rel=stylesheet type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="huffman.js"></script>
 </head>
 <body>
     <div>
@@ -14,7 +15,7 @@
             </textarea>
             <button id="generate">Generera</button>
     </div>
-    <div><table id="result">
+    <div><table id="result" >
         <thead>
             <th>Character</th>
             <th>Frequency</th>
@@ -22,5 +23,6 @@
         </thead>
         <tbody></tbody>
     </table></div>
+    <div><p id="avgBits"></p></div>
 </body>
 </html>
